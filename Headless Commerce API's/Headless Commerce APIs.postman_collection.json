@@ -1,0 +1,1255 @@
+{
+	"info": {
+		"_postman_id": "51fe050e-79ea-4a85-b700-91b750d50f70",
+		"name": "Headless Commerce APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "473478"
+	},
+	"item": [
+		{
+			"name": "SF Commerce APIs",
+			"item": [
+				{
+					"name": "Commerce Cart",
+					"item": [
+						{
+							"name": "1. Commerce Webstore Cart",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.environment.set(\"_cartId\", jsonData.cartId);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/carts/active",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"carts",
+										"active"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "1a. Commerce Webstore Create Cart",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.environment.set(\"_cartId\", jsonData.cartId);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"name\":\"My Cart\",\n   \"type\":\"Cart\"\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/carts/",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"carts",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2. Commerce Webstore Cart Items PUT",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"productId\":\"01tDo000000YqSmIAK\",\n   \"quantity\":\"4\",\n   \"type\":\"Product\"\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/carts/active/cart-items",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"carts",
+										"active",
+										"cart-items"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Commerce Webstore Cart Items",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/carts/active/cart-items",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"carts",
+										"active",
+										"cart-items"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Commerce Product",
+					"item": [
+						{
+							"name": "Commerce Webstore Products",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/0ZE5e000000M1ApGAK/products?effectiveAccountId=0015e00000MMkzQAAT&skus=800984",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"0ZE5e000000M1ApGAK",
+										"products"
+									],
+									"query": [
+										{
+											"key": "effectiveAccountId",
+											"value": "0015e00000MMkzQAAT"
+										},
+										{
+											"key": "skus",
+											"value": "800984"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Commerce Webstore Update Cart Items",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"quantity\":\"5\"\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/0ZE5e000000M1ApGAK/carts/0a65e000000M3cEAAS/cart-items/0a95e000000M5hKAAS",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"0ZE5e000000M1ApGAK",
+										"carts",
+										"0a65e000000M3cEAAS",
+										"cart-items",
+										"0a95e000000M5hKAAS"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Commerce Checkout",
+					"item": [
+						{
+							"name": "1. Start Commerce Checkout",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"cartId\": \"{{_cartId}}\"\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/checkouts",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"checkouts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "2. Commerce Webstore Checkout",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/checkouts/active",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"checkouts",
+										"active"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "3. Commerce Webstore Checkout",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"deliveryAddress\": {\n    \"name\": \"Alan Johnson\",\n    \"region\": \"CA\",\n    \"country\": \"US\",\n    \"city\": \"San Francisco\",\n    \"street\": \"415 Mission St\",\n    \"postalCode\": \"94105\"\n  },\n  \"desiredDeliveryDate\": \"2021-05-28T16:41:41.090Z\",\n  \"shippingInstructions\": \"type code 1234 on gate keypad\"\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/checkouts/active",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"checkouts",
+										"active"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "4. Commerce Checkout Payment Tokenize",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.environment.set(\"_paymentToken\", jsonData.token);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"cardPaymentMethod\":{\n      \"cardHolderName\":\"John Doe\",\n      \"cardNumber\":\"4242424242424242\",\n      \"expiryMonth\":\"12\",\n      \"expiryYear\":\"24\",\n      \"cvv\":\"141\",\n      \"cardType\":\"Visa\"\n   }\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/payments/token",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"payments",
+										"token"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "5. Commerce Checkout Payment",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"paymentToken\":\"{{_paymentToken}}\",\n   \"requestType\":\"Auth\",\n   \"billingAddress\":{\n      \"name\":\"John Doe\",\n      \"street\":\"123 Acme Drive\",\n      \"city\":\"Los Angeles\",\n      \"region\":\"California\",\n      \"country\":\"United States\",\n      \"postalCode\":\"90001\"\n   }\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/checkouts/active/payments",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"checkouts",
+										"active",
+										"payments"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "6. Commerce Checkout to Order",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"cardPaymentMethod\":{\n      \"cardHolderName\":\"John Doe\",\n      \"cardNumber\":\"4242424242424242\",\n      \"expiryMonth\":\"12\",\n      \"expiryYear\":\"24\",\n      \"cvv\":\"141\",\n      \"cardType\":\"Visa\"\n   }\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/checkouts/active/orders",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"checkouts",
+										"active",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Cancel Commerce Checkout Copy",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"cartId\": \"0a65e000000M3cEAAS\"\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v54.0/commerce/webstores/{{_webstoreId}}/checkouts/active",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v54.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"checkouts",
+										"active"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Guest Checkout",
+					"item": [
+						{
+							"name": "SOAP Login Admin",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"const result = xml2Json(pm.response.text())[\"soapenv:Envelope\"][\"soapenv:Body\"].loginResponse.result;",
+											"const url = result.serverUrl.split(\"/\");",
+											"",
+											"const context = pm.environment.name ? pm.environment : pm.collectionVariables;",
+											"context.set(\"_adminAccessToken\", result.sessionId);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "login",
+										"type": "text"
+									},
+									{
+										"key": "charset",
+										"value": "UTF-8",
+										"type": "text"
+									},
+									{
+										"key": "Accept",
+										"value": "text/xml",
+										"type": "text"
+									},
+									{
+										"key": "organizationId",
+										"value": "00D5e000004jkp3EAA",
+										"type": "text"
+									},
+									{
+										"key": "portalId",
+										"value": "0DB5e0000008SE7GAM",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"urn:partner.soap.sforce.com\">\n  <SOAP-ENV:Header>\n    <ns1:LoginScopeHeader>\n      <ns1:organizationId>{{_orgId}}</ns1:organizationId>\n    </ns1:LoginScopeHeader>\n  </SOAP-ENV:Header>\n  <SOAP-ENV:Body>\n    <ns1:login>\n      <ns1:username>{{adminUser}}</ns1:username>\n      <ns1:password>{{adminPassword}}</ns1:password>\n    </ns1:login>\n  </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
+								},
+								"url": {
+									"raw": "{{_siteUrl}}/services/Soap/u/{{version}}",
+									"host": [
+										"{{_siteUrl}}"
+									],
+									"path": [
+										"services",
+										"Soap",
+										"u",
+										"{{version}}"
+									]
+								},
+								"description": "Logs in to the login server and starts a client session.\n\nMake sure to set the `url`, `username`, `password` and `secretToken` environment variables before sending this request.\nOn success, the request will automatically collect your authentication token for later use."
+							},
+							"response": [
+								{
+									"name": "Successful SOAP Login",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Content-Type",
+												"name": "Content-Type",
+												"value": "text/xml",
+												"type": "text"
+											},
+											{
+												"key": "SOAPAction",
+												"value": "login",
+												"type": "text"
+											},
+											{
+												"key": "charset",
+												"value": "UTF-8",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<env:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <env:Body>\n    <n1:login xmlns:n1=\"urn:partner.soap.sforce.com\">\n      <n1:username>demo@pozil.org</n1:username>\n      <n1:password>PASSWORD_GOES_HERE</n1:password>\n    </n1:login>\n  </env:Body>\n</env:Envelope>"
+										},
+										"url": {
+											"raw": "https://login.salesforce.com/services/Soap/u/50.0",
+											"protocol": "https",
+											"host": [
+												"login",
+												"salesforce",
+												"com"
+											],
+											"path": [
+												"services",
+												"Soap",
+												"u",
+												"50.0"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "xml",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Wed, 06 Jan 2021 12:47:25 GMT"
+										},
+										{
+											"key": "X-B3-TraceId",
+											"value": "facd9cec92dd7211"
+										},
+										{
+											"key": "X-B3-SpanId",
+											"value": "facd9cec92dd7211"
+										},
+										{
+											"key": "X-B3-Sampled",
+											"value": "0"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-cache,must-revalidate,max-age=0,no-store,private"
+										},
+										{
+											"key": "Content-Type",
+											"value": "text/xml; charset=utf-8"
+										},
+										{
+											"key": "Vary",
+											"value": "Accept-Encoding"
+										},
+										{
+											"key": "Content-Encoding",
+											"value": "gzip"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										}
+									],
+									"cookie": [],
+									"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns=\"urn:partner.soap.sforce.com\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Body>\n        <loginResponse>\n            <result>\n                <metadataServerUrl>https://pozil-dev-ed.my.salesforce.com/services/Soap/m/50.0/00D58000000arpq</metadataServerUrl>\n                <passwordExpired>false</passwordExpired>\n                <sandbox>false</sandbox>\n                <serverUrl>https://pozil-dev-ed.my.salesforce.com/services/Soap/u/50.0/00D58000000arpq</serverUrl>\n                <sessionId>SECRET_SESSION_ID_GOES_HERE</sessionId>\n                <userId>00558000000yFyDAAU</userId>\n                <userInfo>\n                    <accessibilityMode>false</accessibilityMode>\n                    <chatterExternal>false</chatterExternal>\n                    <currencySymbol>€</currencySymbol>\n                    <orgAttachmentFileSizeLimit>26214400</orgAttachmentFileSizeLimit>\n                    <orgDefaultCurrencyIsoCode>EUR</orgDefaultCurrencyIsoCode>\n                    <orgDefaultCurrencyLocale>fr_FR_EURO</orgDefaultCurrencyLocale>\n                    <orgDisallowHtmlAttachments>false</orgDisallowHtmlAttachments>\n                    <orgHasPersonAccounts>false</orgHasPersonAccounts>\n                    <organizationId>00D58000000arpqEAA</organizationId>\n                    <organizationMultiCurrency>false</organizationMultiCurrency>\n                    <organizationName>pozil DE</organizationName>\n                    <profileId>00e58000000wYTOAA2</profileId>\n                    <roleId xsi:nil=\"true\"/>\n                    <sessionSecondsValid>7200</sessionSecondsValid>\n                    <userDefaultCurrencyIsoCode xsi:nil=\"true\"/>\n                    <userEmail>demo@pozil.org</userEmail>\n                    <userFullName>Philippe Ozil</userFullName>\n                    <userId>00558000000yFyDAAU</userId>\n                    <userLanguage>en_US</userLanguage>\n                    <userLocale>fr_FR</userLocale>\n                    <userName>demo@pozil.org</userName>\n                    <userTimeZone>Europe/Paris</userTimeZone>\n                    <userType>Standard</userType>\n                    <userUiSkin>Theme3</userUiSkin>\n                </userInfo>\n            </result>\n        </loginResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+								}
+							]
+						},
+						{
+							"name": "Guest Cart Create",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"var jsonData = JSON.parse(responseBody);",
+											"pm.environment.set(\"_cartId\", jsonData.cartId);"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_accessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n   \"name\":\"My Cart\",\n   \"type\":\"Cart\",\n   \"effective​AccountId\":\"005Do000001AfKtIAK\"\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v57.0/commerce/webstores/{{_webstoreId}}/carts/",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v57.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"carts",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guest Start Checkout",
+							"protocolProfileBehavior": {
+								"followAuthorizationHeader": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_adminAccessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"cartId\": \"0a6Do000000L4xQIAS\"\n}"
+								},
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v56.0/commerce/webstores/{{_webstoreId}}/checkouts",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v56.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"checkouts"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Guest GET Checkout",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{_adminAccessToken}}",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{_endpoint}}/services/data/v57.0/commerce/webstores/{{_webstoreId}}/checkouts/active",
+									"host": [
+										"{{_endpoint}}"
+									],
+									"path": [
+										"services",
+										"data",
+										"v57.0",
+										"commerce",
+										"webstores",
+										"{{_webstoreId}}",
+										"checkouts",
+										"active"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "SOAP Login Community",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const result = xml2Json(pm.response.text())[\"soapenv:Envelope\"][\"soapenv:Body\"].loginResponse.result;",
+									"const url = result.serverUrl.split(\"/\");",
+									"",
+									"const context = pm.environment.name ? pm.environment : pm.collectionVariables;",
+									"context.set(\"_accessToken\", result.sessionId);",
+									"context.set(\"_endpoint\", url[0] + \"//\" + url[2]);",
+									"context.set(\"_userId\", result.userId);",
+									"context.set(\"_orgId\", result.userInfo.organizationId);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							},
+							{
+								"key": "SOAPAction",
+								"value": "login",
+								"type": "text"
+							},
+							{
+								"key": "charset",
+								"value": "UTF-8",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "text/xml",
+								"type": "text"
+							},
+							{
+								"key": "organizationId",
+								"value": "00D5e000004jkp3EAA",
+								"type": "text"
+							},
+							{
+								"key": "portalId",
+								"value": "0DB5e0000008SE7GAM",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<SOAP-ENV:Envelope xmlns:SOAP-ENV=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:ns1=\"urn:partner.soap.sforce.com\">\n  <SOAP-ENV:Header>\n    <ns1:LoginScopeHeader>\n      <ns1:organizationId>{{_orgId}}</ns1:organizationId>\n    </ns1:LoginScopeHeader>\n  </SOAP-ENV:Header>\n  <SOAP-ENV:Body>\n    <ns1:login>\n      <ns1:username>{{username}}</ns1:username>\n      <ns1:password>{{password}}</ns1:password>\n    </ns1:login>\n  </SOAP-ENV:Body>\n</SOAP-ENV:Envelope>"
+						},
+						"url": {
+							"raw": "{{_siteUrl}}/services/Soap/u/{{version}}",
+							"host": [
+								"{{_siteUrl}}"
+							],
+							"path": [
+								"services",
+								"Soap",
+								"u",
+								"{{version}}"
+							]
+						},
+						"description": "Logs in to the login server and starts a client session.\n\nMake sure to set the `url`, `username`, `password` and `secretToken` environment variables before sending this request.\nOn success, the request will automatically collect your authentication token for later use."
+					},
+					"response": [
+						{
+							"name": "Successful SOAP Login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "text/xml",
+										"type": "text"
+									},
+									{
+										"key": "SOAPAction",
+										"value": "login",
+										"type": "text"
+									},
+									{
+										"key": "charset",
+										"value": "UTF-8",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<env:Envelope xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\"\n    xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\"\n    xmlns:env=\"http://schemas.xmlsoap.org/soap/envelope/\">\n  <env:Body>\n    <n1:login xmlns:n1=\"urn:partner.soap.sforce.com\">\n      <n1:username>demo@pozil.org</n1:username>\n      <n1:password>PASSWORD_GOES_HERE</n1:password>\n    </n1:login>\n  </env:Body>\n</env:Envelope>"
+								},
+								"url": {
+									"raw": "https://login.salesforce.com/services/Soap/u/50.0",
+									"protocol": "https",
+									"host": [
+										"login",
+										"salesforce",
+										"com"
+									],
+									"path": [
+										"services",
+										"Soap",
+										"u",
+										"50.0"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "xml",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Wed, 06 Jan 2021 12:47:25 GMT"
+								},
+								{
+									"key": "X-B3-TraceId",
+									"value": "facd9cec92dd7211"
+								},
+								{
+									"key": "X-B3-SpanId",
+									"value": "facd9cec92dd7211"
+								},
+								{
+									"key": "X-B3-Sampled",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache,must-revalidate,max-age=0,no-store,private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/xml; charset=utf-8"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept-Encoding"
+								},
+								{
+									"key": "Content-Encoding",
+									"value": "gzip"
+								},
+								{
+									"key": "Transfer-Encoding",
+									"value": "chunked"
+								}
+							],
+							"cookie": [],
+							"body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns=\"urn:partner.soap.sforce.com\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\">\n    <soapenv:Body>\n        <loginResponse>\n            <result>\n                <metadataServerUrl>https://pozil-dev-ed.my.salesforce.com/services/Soap/m/50.0/00D58000000arpq</metadataServerUrl>\n                <passwordExpired>false</passwordExpired>\n                <sandbox>false</sandbox>\n                <serverUrl>https://pozil-dev-ed.my.salesforce.com/services/Soap/u/50.0/00D58000000arpq</serverUrl>\n                <sessionId>SECRET_SESSION_ID_GOES_HERE</sessionId>\n                <userId>00558000000yFyDAAU</userId>\n                <userInfo>\n                    <accessibilityMode>false</accessibilityMode>\n                    <chatterExternal>false</chatterExternal>\n                    <currencySymbol>€</currencySymbol>\n                    <orgAttachmentFileSizeLimit>26214400</orgAttachmentFileSizeLimit>\n                    <orgDefaultCurrencyIsoCode>EUR</orgDefaultCurrencyIsoCode>\n                    <orgDefaultCurrencyLocale>fr_FR_EURO</orgDefaultCurrencyLocale>\n                    <orgDisallowHtmlAttachments>false</orgDisallowHtmlAttachments>\n                    <orgHasPersonAccounts>false</orgHasPersonAccounts>\n                    <organizationId>00D58000000arpqEAA</organizationId>\n                    <organizationMultiCurrency>false</organizationMultiCurrency>\n                    <organizationName>pozil DE</organizationName>\n                    <profileId>00e58000000wYTOAA2</profileId>\n                    <roleId xsi:nil=\"true\"/>\n                    <sessionSecondsValid>7200</sessionSecondsValid>\n                    <userDefaultCurrencyIsoCode xsi:nil=\"true\"/>\n                    <userEmail>demo@pozil.org</userEmail>\n                    <userFullName>Philippe Ozil</userFullName>\n                    <userId>00558000000yFyDAAU</userId>\n                    <userLanguage>en_US</userLanguage>\n                    <userLocale>fr_FR</userLocale>\n                    <userName>demo@pozil.org</userName>\n                    <userTimeZone>Europe/Paris</userTimeZone>\n                    <userType>Standard</userType>\n                    <userUiSkin>Theme3</userUiSkin>\n                </userInfo>\n            </result>\n        </loginResponse>\n    </soapenv:Body>\n</soapenv:Envelope>"
+						}
+					]
+				},
+				{
+					"name": "Community User OAuth2",
+					"request": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "redirect_uri",
+									"value": "https://saltbox-demo-org.my.site.com/services/oauth2/callback",
+									"type": "string"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://saltbox-demo-org.my.site.com/services/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "authUrl",
+									"value": "https://saltbox-demo-org.my.site.com/services/oauth2/authorize",
+									"type": "string"
+								},
+								{
+									"key": "useBrowser",
+									"value": false,
+									"type": "boolean"
+								},
+								{
+									"key": "clientSecret",
+									"value": "624AF64A637EBED19CD5AC65A60B5F81A7F14CB003921CB0428101547A233446",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "3MVG9cHH2bfKACZb7h2WYoot3LT6Z9vOH0_WFTlS0s5Q76T0nxCkrFOjcFJyhlFnzXHUYFDAiF4Ac4ym4knQE",
+									"type": "string"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://saltbox-demo-org.my.site.com/services/oauth2/authorize?response_type=token&client_id=3MVG9cHH2bfKACZb7h2WYoot3LT6Z9vOH0_WFTlS0s5Q76T0nxCkrFOjcFJyhlFnzXHUYFDAiF4Ac4ym4knQE&redirect_uri=https://headless-commerce.herokuapp.com/callback",
+							"protocol": "https",
+							"host": [
+								"saltbox-demo-org",
+								"my",
+								"site",
+								"com"
+							],
+							"path": [
+								"services",
+								"oauth2",
+								"authorize"
+							],
+							"query": [
+								{
+									"key": "response_type",
+									"value": "token"
+								},
+								{
+									"key": "client_id",
+									"value": "3MVG9cHH2bfKACZb7h2WYoot3LT6Z9vOH0_WFTlS0s5Q76T0nxCkrFOjcFJyhlFnzXHUYFDAiF4Ac4ym4knQE"
+								},
+								{
+									"key": "redirect_uri",
+									"value": "https://headless-commerce.herokuapp.com/callback"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "productDetail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://headless-commerce.herokuapp.com/api/productDetail?sku=800984&effectiveAccountId=0015e00000MMkzQAAT",
+					"protocol": "https",
+					"host": [
+						"headless-commerce",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"productDetail"
+					],
+					"query": [
+						{
+							"key": "sku",
+							"value": "800984"
+						},
+						{
+							"key": "effectiveAccountId",
+							"value": "0015e00000MMkzQAAT"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://headless-commerce.herokuapp.com/api/cart",
+					"protocol": "https",
+					"host": [
+						"headless-commerce",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"cartId\":\"0a65e000000M3cEAAS\",\n   \"productId\":\"01t5e000002XjT3AAK\",\n   \"quantity\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://headless-commerce.herokuapp.com/api/cart",
+					"protocol": "https",
+					"host": [
+						"headless-commerce",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "cart PATCH",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n   \"cartId\":\"0a65e000000M3cEAAS\",\n   \"productId\":\"01t5e000002XjT3AAK\",\n   \"quantity\":\"2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://headless-commerce.herokuapp.com/api/cart",
+					"protocol": "https",
+					"host": [
+						"headless-commerce",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"cart"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
