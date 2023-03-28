@@ -24,9 +24,9 @@ public class SFMCService {
         authBody body;
         body = new authBody();
         body.grant_type = 'client_credentials';
-        body.client_id = 'hevj5l8cmu23ljwd8zrwuead';
-        body.client_secret = 'R2glkTsd2U2I8HwUSa0ggGi4';
-        body.account_id = '534000355';
+        body.client_id = 'xxx';
+        body.client_secret = 'xxx';
+        body.account_id = 'xxx';
 
         String bodyJSON = JSON.serialize(body);
 
@@ -58,7 +58,7 @@ public class SFMCService {
         System.debug('##sendRequest token: '+token);
 
         HttpRequest request = new HttpRequest();
-        request.setEndpoint('https://mcl-007bc43gxf3nj06gzpsl5yq4.rest.marketingcloudapis.com/interaction/v1/events');
+        request.setEndpoint('https://xxx.rest.marketingcloudapis.com/interaction/v1/events');
         request.setMethod('POST');
         request.setHeader('Content-Type', 'application/json;charset=UTF-8');
         request.setHeader('Authorization', 'Bearer '+token);
